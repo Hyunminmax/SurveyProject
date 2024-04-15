@@ -1,0 +1,9 @@
+{% extends "layouts/blank.html" %}
+
+{% block content %}
+    <div class="max-w-4xl mx-auto px-8 py-24">
+        <h1>당신의 영화 취향은? 혹시 압니까? 설문을 해주시면 당신이 알지 못했던 취향저격 영화를 추천해줄지?</h1>
+        <a href = "{% url 'user_view' %}"><button>설문시작!</button></a>
+    
+    </div>
+{% endblock %}

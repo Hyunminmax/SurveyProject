@@ -1,0 +1,13 @@
+{% extends "layouts/box.html" %}
+
+{% block content %}
+    <div class="max-w-4xl mx-auto px-8 py-24">
+        <form method="post" action="{% url 'survey_view' question_id %}">
+            {% csrf_token %}
+            <h1>{{ question }}</h1>
+            <button type="submit" name="answer" value="1">Yes</button>
+            <button type="submit" name="answer" value="0">No</button>
+        </form>
+    </div>
+{% endblock %}
+
