@@ -11,3 +11,11 @@ class CustomUserForm(ModelForm):
             'ages' : forms.RadioSelect(),
             'gender' : forms.RadioSelect()
         }
+
+# class answerForm(ModelForm):
+#     class Meta:
+#         model = CustomUser
+#         fields = ['username', 'answer']
+#         widgets = {
+#             'answer' :
+#         }

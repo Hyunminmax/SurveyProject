@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Analysis</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>Survey Results</h1>
+    <div id="plot"></div>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const summary = JSON.parse('{{ df_summary|safe }}');
+            Object.keys(summary).forEach(question => {
+                const data = [{
+                    x: Object.keys(summary[question]),
+                    y: Object.values(summary[question]),
+                    type: 'bar',
+                    name: question
+                }];
+
+                const layout = {
+                    title: question,
+                    barmode: 'group'
+                };
+
+                Plotly.newPlot(`plot_${question.replace(/\s+/g, '_')}`, data, layout);
+            });
+        });
+    </script>
+</body>
+</html>
+
